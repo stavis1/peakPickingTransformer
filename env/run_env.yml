@@ -1,0 +1,19 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - dill=0.3.8
+  - jellyfish=1.1.0
+  - matplotlib=3.9.2
+  - matplotlib-base=3.9.2
+  - pandas=2.2.2
+  - pip=24.2
+  - pymzml=2.5.10
+  - python=3.12.4
+  - sortedcontainers=2.4.0
+  - networkx=3.3
+  - numba=0.60.0
+  - numpy=1.26.4
+  - pip:
+      - depthcharge-ms==0.4.8
+
