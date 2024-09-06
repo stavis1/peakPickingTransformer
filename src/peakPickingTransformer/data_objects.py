@@ -40,6 +40,14 @@ class ms1_peak():
         else:
             pass #TO DO
 
+@dataclass(slots = True)
+class PSM():
+    '''This class holds the information about a single peptide-spectrum match event'''
+    mz: float
+    rt: float
+    charge: int
+    peptidoform: str
+    
 
 
 
