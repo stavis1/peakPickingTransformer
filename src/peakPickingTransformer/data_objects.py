@@ -6,8 +6,8 @@ Created on Fri Sep  6 17:05:23 2024
 @author: 4vt
 """
 
+import sys
 from dataclasses import dataclass
-import numpy as np
 
 #The dataclass decorator automatically adds several methods including __init__
 #The slots parameter makes attribute access slightly faster.
@@ -33,7 +33,7 @@ class ms1_peak():
             The .vector attribute gets defined if it was previously empty.   
         
         A -1 for the psm attribute means no psm is attached to this MS1 peak.
-        Any other value should be the (strictly positive) hash of the peptidoform
+        Any other value should be the positive hash of the peptidoform
         '''
         if self.vector:
             return self.vector
@@ -42,13 +42,23 @@ class ms1_peak():
 
 @dataclass(slots = True)
 class PSM():
-    '''This class holds the information about a single peptide-spectrum match event'''
+    '''This class holds the information about a single peptide-spectrum match event.'''
     mz: float
     rt: float
     charge: int
     peptidoform: str
     
-
-
+    def peptidoform_hash(self):
+        '''
+        Calculates a positive hash of the peptidoform sequence.
+        
+        arguments:
+            None
+        returns:
+            a positive integer
+        side effects:
+            None
+        '''
+        return hash(self.peptidoform) % 2**sys.hash_info.width
 
 
