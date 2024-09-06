@@ -65,6 +65,7 @@ class Args():
         #with _ meaning that they are command line parameters and adding them to this instantiation of
         #our custom Args() class.
         self.__dict__.update((i for i in args.__dict__.items() if not i[0].startswith('_')))
+        self.validate_args()
 
     def validate_args(self):
         '''
