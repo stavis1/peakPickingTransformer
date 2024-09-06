@@ -50,3 +50,7 @@ class parserTestSuite(unittest.TestCase):
             args = Args()
         except ArgumentError:
             self.assertTrue(False, msg = 'An exception was inappropriately raised for extant files')            
+
+#this allows us to run only the tests in this file
+if __name__ == '__main__':
+    unittest.main()
