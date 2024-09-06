@@ -1,6 +1,6 @@
 
 from peakPickingTransformer import argument_parser
-args = argument_parser()
+args = argument_parser.args()
 
 #parse mzML
 
