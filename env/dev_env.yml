@@ -11,8 +11,7 @@ dependencies:
   - pymzml=2.5.10
   - python=3.12.4
   - sortedcontainers=2.4.0
-  - spyder=6.0.0
-  - spyder-kernels=3.0.0
+  - spyder=5.5.5
   - networkx=3.3
   - numba=0.60.0
   - numpy=1.26.4
