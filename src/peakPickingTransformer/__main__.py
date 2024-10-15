@@ -4,25 +4,24 @@ from peakPickingTransformer import argument_parser
 #and argument validation happens quickly, we parse arguments before importing anything else.
 args = argument_parser.Args()
 
+from peakPickingTransformer.transformer_model import transformer
 
 #parse mzML
 
 if args.task == 'train':
-    #initialize model
+    model = transformer()
+    #load data
     #run training
     #report results    
-    pass
 
 elif args.task == 'refine':
-    #initialize model
-    #load weights
+    model = transformer()
+    model.load(args)
     #run GUI
-    pass
 
 elif args.task == 'infer':
-    #initialize model
-    #load weights
+    model = transformer()
+    model.load(args)
     #run inference
     #report results
-    pass
 
