@@ -23,7 +23,7 @@ class ms1_peak():
 
     def preprocess(self):
         '''
-        Encodes the MS1 peak data as a vector for use by the transformer model.
+        Encode the MS1 peak data as a vector for use by the transformer model.
         
         arguments:
             None
@@ -50,7 +50,7 @@ class PSM():
     
     def peptidoform_hash(self):
         '''
-        Calculates a positive hash of the peptidoform sequence.
+        Calculate a positive hash of the peptidoform sequence.
         
         arguments:
             None

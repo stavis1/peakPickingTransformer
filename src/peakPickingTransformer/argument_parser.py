@@ -21,7 +21,7 @@ class Args():
     '''
     def __init__(self):
         '''
-        Parses command line arguments.
+        Parse command line arguments.
         
         arguments:
             None
@@ -69,7 +69,7 @@ class Args():
 
     def validate_args(self):
         '''
-        raises an error if the command line arguments are invalid
+        Raise an error if the command line arguments are invalid.
         
         arguments:
             None
@@ -78,7 +78,7 @@ class Args():
         side effects:
             None
         raises:
-            ArgumentError on invalid command line arguments
+            ArgumentError on invalid command line arguments.
         '''
         
         #make sure that all of the arguments required for a task are provided
