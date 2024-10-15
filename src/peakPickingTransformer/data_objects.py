@@ -19,6 +19,7 @@ class ms1_peak():
     intensity: float
     scan: int
     psm: int = -1
+    label = -1
     vector: list = []
 
     def preprocess(self):
@@ -33,12 +34,25 @@ class ms1_peak():
             The .vector attribute gets defined if it was previously empty.   
         
         A -1 for the psm attribute means no psm is attached to this MS1 peak.
-        Any other value should be the positive hash of the peptidoform
+        Any other value should be the positive hash of the peptidoform.
+        A -1 for the Y attribute means that the peak is not labeled.
+        Any other value should be the positive has of the feature this peak belongs to.
         '''
-        if self.vector:
-            return self.vector
-        else:
-            pass #TO DO
+        raise NotImplementedError()
+    
+    def set_label(self, peptidoform, charge):
+        '''
+        Calculate a positive hash of the feature this MS1 peak belongs to.
+        
+        arguments:
+            peptidoform: The modified peptide sequence of the feature.
+            charge: The charge state of the feature.
+        returns:
+            None
+        side effects:
+            Sets the label attribute to the positive hash of the feature.
+        '''
+        self.label = hash((peptidoform, charge)) % 2**sys.hash_info.width
 
 @dataclass(slots = True)
 class PSM():
