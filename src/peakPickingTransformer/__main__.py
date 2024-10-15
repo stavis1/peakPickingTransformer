@@ -9,12 +9,13 @@ from peakPickingTransformer.transformer_model import transformer
 #parse mzML
 
 if args.task == 'train':
-    from peakPickingTransformer.utilities import load_training_data, split_data
+    from peakPickingTransformer.utilities import load_training_data, split_data, assess_model
     model = transformer()
     X, Y = load_training_data(args)
     X_train, Y_train, X_test, Y_test = split_data(X, Y, args)
     model = model.fit(X_train, Y_train, args)
-    #report results    
+    model.dump(args)
+    assess_model(X_test, Y_test, model, args)   
 
 elif args.task == 'refine':
     model = transformer()

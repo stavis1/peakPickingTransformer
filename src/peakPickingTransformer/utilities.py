@@ -37,3 +37,21 @@ def split_data(X, Y, args):
     '''
     raise NotImplementedError()
 
+def assess_model(X, Y, model, args):
+    '''
+    Run inference on the test dataset and generate quality control plots.
+    
+    arguments:
+        X: A collection of held out predictors.
+        Y: A collection of held out labels.
+        model: The trained transformer model.
+        args: The parsed options object.
+    returns:
+        None
+    side effects:
+        Save a series of quality control plots.
+    
+    Implementation notes: We should save traces of model performance during training with the model object and then plot those here
+    in addition to whatever we want to plot from the test set results.
+    '''
+    raise NotImplementedError()
