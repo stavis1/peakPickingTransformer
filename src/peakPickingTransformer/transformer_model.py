@@ -74,6 +74,21 @@ class transformer():
         raise NotImplementedError()
         return self
     
+    def dump(self, args):
+        '''
+        Save a fitted model to a file.
+        
+        Arguments:
+            args: The parsed options object.
+        returns:
+            None
+        side effects:
+            The model weights are saved to a file.
+        
+        Implementation notes: The location of the fitted weights will be in the args object.
+        '''
+        raise NotImplementedError()
+    
     def _make_XIC_peaks(self, Ŷ, args):
         '''
         Find XIC peaks from the per-MS1-peak predicted probabilites given by the model.
