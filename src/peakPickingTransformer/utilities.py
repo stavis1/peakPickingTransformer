@@ -13,7 +13,7 @@ def load_training_data(args):
     arguments:
         args: The parsed options object.
     returns:
-        An X, Y tuple of training features and labels, respectively.
+        A list of labeled feature objects.
     side effects:
         None
     
@@ -22,28 +22,32 @@ def load_training_data(args):
     '''
     raise NotImplementedError()
 
-def split_data(X, Y, args):
+def split_data(features, args):
     '''
     Split labeled data into train and test subsets.
     
     arguments:
-        X: A collection of predictors.
-        Y: A collection of labels.
+        features: A list of labeled feature objects.
         args: The parsed options object.
     returns:
-        A tuple of X_train, Y_train, X_test, Y_test wich are random, disjoint subsets of the provided data.
+        A tuple of (train_features, test_features) wich are random, disjoint subsets of the provided data.
     side effects:
         None
     '''
-    raise NotImplementedError()
+    import numpy as np
+    rng = np.random.default_rng(args.seed)
+    
+    train_idxs = rng.choice(range(len(features)), args.split_frac, replace = False)
+    test_idxs = list(set(range(len(features))).difference(train_idxs))
+    return (features[train_idxs], features[test_idxs])
+    
 
-def assess_model(X, Y, model, args):
+def assess_model(features, model, args):
     '''
     Run inference on the test dataset and generate quality control plots.
     
     arguments:
-        X: A collection of held out predictors.
-        Y: A collection of held out labels.
+        features: A list of labeled feature objects.
         model: The trained transformer model.
         args: The parsed options object.
     returns:

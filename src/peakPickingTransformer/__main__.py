@@ -11,16 +11,16 @@ from peakPickingTransformer.transformer_model import transformer
 if args.task == 'train':
     from peakPickingTransformer.utilities import load_training_data, split_data, assess_model
     #load and process training data
-    X, Y = load_training_data(args)
-    X_train, Y_train, X_test, Y_test = split_data(X, Y, args)
+    features = load_training_data(args)
+    train_features, test_features = split_data(features, args)
     
     #fit model
     model = transformer()
-    model = model.fit(X_train, Y_train, args)
+    model = model.fit(train_features, args)
     model.dump(args)
     
     #make quality control plots
-    assess_model(X_test, Y_test, model, args)   
+    assess_model(test_features, model, args)   
 
 elif args.task == 'refine':
     #initialize model

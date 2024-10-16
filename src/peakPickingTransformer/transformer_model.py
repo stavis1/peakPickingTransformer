@@ -21,13 +21,12 @@ class transformer():
         '''
         raise NotImplementedError()
     
-    def fit(self, X, Y, args):
+    def fit(self, features, args):
         '''
         Fit the model to training data and returns a fitted model object.
         
         arguments:
-            X: An array of preprocessed predictor tensors.
-            Y: An array of label vectors.
+            features: A list of labeled feature objects to train on.
             args: The parsed options object.
         returns:
             A reference to the instantiated object.
@@ -39,13 +38,12 @@ class transformer():
         raise NotImplementedError()
         return self
     
-    def refine(self, X, Y, args):
+    def refine(self, features, args):
         '''
         Update the weights of a pretrained model with new training data and returns a fitted model object.
         
         arguments:
-            X: An array of preprocessed predictor tensors.
-            Y: An array of label vectors.
+            features: A list of labeled feature objects to train on.
             args: The parsed options object.
         returns:
             A reference to the instantiated object.
