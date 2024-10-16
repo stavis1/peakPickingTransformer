@@ -59,3 +59,25 @@ def assess_model(features, model, args):
     in addition to whatever we want to plot from the test set results.
     '''
     raise NotImplementedError()
+
+def get_ms1s(args):
+    '''
+    Parses mzML file and generates indexed data structures for fast lookup.
+    
+    arguments:
+        args: The parsed options object.
+    returns:
+        A tuple of (MS1 objects sorted by m/z, MS1 objects sorted by RT)
+    side effects:
+        None
+    '''
+    from sortedcontainers import SortedList
+    import pymzml
+    
+    mzml = pymzml.run.Reader(args.mzml_file)
+    ms1s = []
+    
+
+
+
+
